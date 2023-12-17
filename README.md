@@ -1,5 +1,4 @@
-  ___________________________________________________________________________________________________________
- /                                                                                                           \
+ _____________________________________________________________________________________________________________
 |    The pygame module (latest version) has to be installed beforehand in order to run the program.           |
 |    To do so, follow the steps:                                                                              |
 |    1. Open a terminal or cmd prompt                                                                         |
@@ -20,4 +19,4 @@
 |    Also, this program can only play pre-downloaded songs. It CAN NOT download them from the internet.       |
 |    To add your own songs, please download the .mp3 or .wav files and drop them into the 'songs' folder.     |
 |    To delete songs, simply delete the corresponding audio file from the songs folder.                       |
- \___________________________________________________________________________________________________________/
+|_____________________________________________________________________________________________________________|
