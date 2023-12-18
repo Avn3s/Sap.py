@@ -14,20 +14,18 @@ Any support from my side will be hugely limited.
 3. Install python via the installer.
 
 ## Installing pygame
- 1. Open a terminal or cmd prompt                                                                          
- 2. Run the following
- ```bash
-python -m pip install pygame
-```                                
- 3. Wait till it says something like "Pygame successfully installed"                                       
- 4. Close the terminal.                                                                                    
- 5. Follow the steps to start the program.                                                                 
-  
+ 1. Download the package (see below).
+ 2. Run pygameinst.py
+ 3. Wait till installation completes.
+ 4. Close the app once it says 'Pygame Successfully installed!'.
+ 5. If you are lazy, just wait for 5 seconds. The app should close itself.
+
 ## Usage:
  1. Click on 'Code' and hit 'download zip'.
  2. Unzip the archive.
- 3. Open soundapp.py
- 4. Enjoy
+ 3. Install pygame (see above).
+ 4. Open soundapp.py
+ 5. Enjoy.
 
 ## To-do
 <td>
