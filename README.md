@@ -5,9 +5,15 @@ There are much better alternatives out there. So if you still plan on using this
 Any support from my side will be hugely limited.
 
 ## Requirements
-1. The [python](https://www.python.org/) language.
-2. The [pygame](https://pypi.org/project/pygame/) module (preferably the latest version) has to be installed beforehand in order to run the program.            
-To install pygame, follow the steps: 
+1. The [python](https://www.python.org/) language (v3.10 or newer).
+2. The [pygame](https://pypi.org/project/pygame/) module (preferably the latest version) has to be installed beforehand in order to run the program.
+
+## Installing python
+1. Go to [python](https://www.python.org/downloads)
+2. Download the preferred installation file.
+3. Install python via the installer.
+
+## Installing pygame
  1. Open a terminal or cmd prompt                                                                          
  2. Run the following
  ```bash
