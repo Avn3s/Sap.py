@@ -1,3 +1,14 @@
+## Contents
+1. [Contents](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#contents)
+2. [Clarification-cum-Warning](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#clarification-cum-warning)
+3. [Requirements](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#requirements)
+4. [Installing python](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#clarification-cum-warning)
+5. [Installing pygame](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#installing-python)
+6. [Usage](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#usage)
+7. [To-do](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#to-do)
+8. [Also Note](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#also-note)
+9. [Credits](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#credits)
+
 ## Clarification-cum-Warning
 This was made simply for a school project by a jobless dude for the sake of marks. So do not use this unless you have nothing else to do.
 I am an amateur coder and thus this program is probably EXTREMELY unoptimised and buggy. 
