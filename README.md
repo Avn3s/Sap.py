@@ -17,10 +17,25 @@ python -m pip install pygame
  5. Follow the steps to start the program.                                                                 
   
 ## Usage:
- 1. Keep the 'sudeep' folder open and type cmd in the search bar.                                          
- 2. Type 'soundapp.py' in the prompt and run (without quotes again).                                       
-    Alternatively, follow step 1 and then drag the 'soundapp.py' file into the terminal and run.                       
- 3. Enjoy.                                                                                                 
+ 1. Click on 'Code' and hit 'download zip'.
+ 2. Unzip the archive.
+ 3. Open soundapp.py
+ 4. Enjoy
+
+## To-do
+<td>
+        
+| Feature  | Progress |
+| ------- | :-------: |
+| Play/Pause/Resume/Stop | ✅ |
+| Volume   | ⚙️ |
+| Queue   | ⚙️ |
+| Playlist | :x: |
+| Song list | ✅ |
+| Gui | Will not be added |
+| Online data fetching | WIll not be added |
+
+</td>
   
  ## Also Note:                                                                                                
 This program can play .mp3, .wav, .ogg files ONLY as of now.                                              
