@@ -20,7 +20,7 @@ Any support from my side will be hugely limited.
 2. The [pygame](https://pypi.org/project/pygame/) module (preferably the latest version) has to be installed beforehand in order to run the program.
 
 ## Installing python
-1. Go to [python](https://www.python.org/downloads)
+1. Go to [the python downloads page.](https://www.python.org/downloads)
 2. Download the preferred installation file.
 3. Install python via the installer.
 
@@ -34,7 +34,7 @@ Any support from my side will be hugely limited.
 ## Usage:
  1. Click on 'Code' and hit 'download zip'.
  2. Unzip the archive.
- 3. Install pygame (see above).
+ 3. Run pygameinst.py
  4. Open soundapp.py
  5. Enjoy.
 
