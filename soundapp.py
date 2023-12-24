@@ -42,7 +42,9 @@ while True:
     elif n.lower()=="s":
         mixer.music.stop()
         mixer.music.unload()
-    elif n.lower()=='q' or n.lower()==('QUIT'):
+    elif n.lower()=='q':
+        if mixer.music.get_busy()==True:
+            mixer.music.stop()
         print("Thank you for using SoundApp.\nMade with <3 by Avnes.")
         sleep(6)
         exit()
