@@ -2,7 +2,7 @@ from os import listdir
 from pygame import mixer
 from time import sleep
 mixer.init()
-print("\nWelcome to SoundApp!\n")
+print("\nWelcome to Sappy!\n")
 print("Here are your saved songs... To add more, move the required audio files to the 'songs' folder.\n")
 v=1.0
 L=listdir('songs')
@@ -45,6 +45,6 @@ while True:
     elif n.lower()=='q':
         if mixer.music.get_busy()==True:
             mixer.music.stop()
-        print("Thank you for using SoundApp.\nMade with <3 by Avnes.")
+        print("Thank you for using Sappy.\nMade with <3 by Avnes.")
         sleep(6)
         exit()
