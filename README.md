@@ -34,7 +34,7 @@ Any support from my side will be hugely limited.
 ## Usage:
  1. Click on 'Code' and hit 'download zip'.
  2. Unzip the archive.
- 3. Run pygameinst.py
+ 3. Run requirementinstaller.py
  4. Open soundapp.py
  5. Enjoy.
 
