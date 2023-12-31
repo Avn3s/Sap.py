@@ -26,7 +26,7 @@ Any support from my side will be hugely limited.
 
 ## Installing pygame
  1. Download the package (see below).
- 2. Run pygameinst.py
+ 2. Run requirementinstaller.py
  3. Wait till installation completes.
  4. Close the app once it says 'Pygame Successfully installed!'.
  5. If you are lazy, just wait for 5 seconds. The app should close itself.
