@@ -1,32 +1,36 @@
 from os import listdir
+from os import remove
 from pygame import mixer
 from time import sleep
 mixer.init()
 print("\nWelcome to Sappy!\n")
 print("Here are your saved songs... To add more, move the required audio files to the 'songs' folder.\n")
 v=1.0
-L=listdir('songs')
-for i in range(len(L)):
-    print(i+1,'.','\t',L[i])
+for i in range(len(listdir('songs'))):
+        if listdir('songs')[i]!='ZZZ.txt':
+            print(i+1,'.','\t',listdir('songs')[i])
 print('\n')
 while True:
     n=input("\nChoose function (Enter h for help): ")
     if n.lower()=='p':
         sn=int(input("Specify the song ID from the list: "))
-        if sn in range(len(L)):
-            s=str(L[sn-1])
+        if sn in range(len(listdir('songs'))):
+            s=str(listdir('songs')[sn-1])
             if mixer.music.get_busy()==False:
                 print("Now playing:",s)
                 mixer.music.load("./songs/"+s)
                 mixer.music.set_volume(v)
                 mixer.music.play()
+            else:
+                mixer.music.queue("./songs/"+s)
+                print("Queued:",s)
         else:
-            mixer.music.queue("./songs/"+s)
-            print("Queued:",s)
+            print('Invalid function... try again.')
     elif n.lower()=='l':
         print("\nShowing song list.\n")
-        for i in range(len(L)):
-            print(i+1,'.','\t',L[i])
+        for i in range(len(listdir('songs'))):
+            if listdir('songs')[i]!='ZZZ.txt':
+                print(i+1,'.','\t',listdir('songs')[i])
     elif n.lower()=='v':
         print("Current volume:",mixer.music.get_volume()*100,'%')
         v=(float(input("Enter Volume: ")))/100
@@ -42,6 +46,12 @@ while True:
     elif n.lower()=="s":
         mixer.music.stop()
         mixer.music.unload()
+    elif n.lower()=="d":
+        d=input("Song number to be deleted (enter 'esc' to skip): ")
+        if d=='esc':
+            continue
+        elif int(d)-1 in range(len(listdir('songs'))):
+            remove('songs/'+str(listdir('songs')[int(d)-1]))
     elif n.lower()=='q':
         if mixer.music.get_busy()==True:
             mixer.music.stop()
