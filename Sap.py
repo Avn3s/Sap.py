@@ -1,60 +1,102 @@
-from os import listdir
-from os import remove
+#Importing requirements
+from os import listdir,remove,system
 from pygame import mixer
 from time import sleep
+from pygame import USEREVENT,event
+import threading
+import sys
+
 mixer.init()
-print("\nWelcome to Sappy!\n")
+system("cls")
+pop='''
+    ._______.     ___      .______        .______   ____    ____ 
+    /       |    /   \     |   _  \       |   _  \  \   \  /   / 
+   |   (----`   /  ^  \    |  |_)  |      |  |_)  |  \   \/   /  
+    \   \      /  /_\  \   |   ___/       |   ___/    \_    _/   
+.----)   |    /  _____  \  |  |     __    |  |          |  |     
+|_______/    /__/     \__\ | _|    (__)   | _|          |__|     
+
+'''
+print(pop)
+print("\n\nLoading....")
+sleep(5)
+system("cls")
+print(pop)
+
+print("\nWelcome to Sappy!\n\n~~>Built by Avnes\n~~>Bound to be dogshit\n~~>Use at your own risk\n")
 print("Here are your saved songs... To add more, move the required audio files to the 'songs' folder.\n")
+
 v=1.0
 for i in range(len(listdir('songs'))):
         if listdir('songs')[i]!='ZZZ.txt':
             print(i+1,'.','\t',listdir('songs')[i])
 print('\n')
-while True:
-    n=input("\nChoose function (Enter h for help): ")
-    if n.lower()=='p':
-        sn=int(input("Specify the song ID from the list: "))
-        if sn in range(len(listdir('songs'))):
-            s=str(listdir('songs')[sn-1])
-            if mixer.music.get_busy()==False:
-                print("Now playing:",s)
-                mixer.music.load("./songs/"+s)
-                mixer.music.set_volume(v)
+
+MUSIC_END=USEREVENT+1
+mixer.music.set_endevent(MUSIC_END)
+
+q=[]
+
+def songplay(q):
+    while True:
+        if (mixer.music.get_busy()==False) or (event == MUSIC_END):
+            if len(q)!=0:
+                mixer.music.unload()
+                mixer.music.load(q.pop(0))
                 mixer.music.play()
+        sleep(3)
+
+song=threading.Thread(target=songplay, args=(q,))
+
+def player(q):
+    while True:
+        n=input("\nChoose function (Enter h for help): ")
+        
+        if n.lower()=='p':
+            sn=int(input("Specify the song ID from the list: "))
+            if sn in range(len(listdir('songs'))):
+                s=str(listdir('songs')[sn-1])
+                q.append("./songs/"+s)
+                print("Added",s,"to the queue.")
             else:
-                mixer.music.queue("./songs/"+s)
-                print("Queued:",s)
-        else:
-            print('Invalid function... try again.')
-    elif n.lower()=='l':
-        print("\nShowing song list.\n")
-        for i in range(len(listdir('songs'))):
-            if listdir('songs')[i]!='ZZZ.txt':
-                print(i+1,'.','\t',listdir('songs')[i])
-    elif n.lower()=='v':
-        print("Current volume:",mixer.music.get_volume()*100,'%')
-        v=(float(input("Enter Volume: ")))/100
-        if mixer.music.get_busy()==True:
-            mixer.music.set_volume(v)
-        print("New volume:",v*100,'%')
-    elif n.lower()=='h':
-        print("\nKindly ignore the quotes and enter the characters only\n1. Enter 'P' to play a song\n2. Enter 'L' to view the list of songs in the songs folder\n3. Enter 'PP' to pause the current song\n4. Enter 'r' to resume\n5. Enter 'S' to stop playing the current song\n6. Enter 'V' to change the Volume\n7. Enter 'Q' to exit the app")
-    elif n.lower()=="pp":
-        mixer.music.pause()
-    elif n.lower()=="r":
-        mixer.music.unpause()
-    elif n.lower()=="s":
-        mixer.music.stop()
-        mixer.music.unload()
-    elif n.lower()=="d":
-        d=input("Song number to be deleted (enter 'esc' to skip): ")
-        if d=='esc':
-            continue
-        elif int(d)-1 in range(len(listdir('songs'))):
-            remove('songs/'+str(listdir('songs')[int(d)-1]))
-    elif n.lower()=='q':
-        if mixer.music.get_busy()==True:
+                print('Invalid function... try again.')
+            
+        elif n.lower()=='l':
+            print("\nShowing song list.\n")
+            for i in range(len(listdir('songs'))):
+                if listdir('songs')[i]!='ZZZ.txt':
+                    print(i+1,'.','\t',listdir('songs')[i])
+            
+        elif n.lower()=='v':
+            print("Current volume:",mixer.music.get_volume()*100,'%')
+            v=(float(input("Enter Volume: ")))/100
+            if mixer.music.get_busy()==True:
+                mixer.music.set_volume(v)
+            print("New volume:",v*100,'%')
+
+        elif n.lower()=='h':
+            print("\nKindly ignore the quotes and enter the characters only\n-> Enter 'P' to play a song\n-> Enter 'L' to view the list of songs in the songs folder\n-> Enter 'PP' to pause the current song\n-> Enter 'R' to resume\n-> Enter 'N' to go to the next song in queue\n-> Enter 'V' to change the Volume\n-> Enter 'D' to delete a song\n-> Press Alt+F4 to exit")
+            
+        elif n.lower()=="pp":
+            mixer.music.pause()
+            
+        elif n.lower()=="r":
+            mixer.music.unpause()
+            
+        elif n.lower()=="n":
             mixer.music.stop()
-        print("Thank you for using Sappy.\nMade with <3 by Avnes.")
-        sleep(6)
-        exit()
+            mixer.music.unload()
+            print("Moving on to the next song...")
+
+        elif n.lower()=="d":
+            d=input("Song number to be deleted (enter 'esc' to skip): ")
+            if d!='esc':
+                if int(d)-1 in range(len(listdir('songs'))):
+                    remove('songs/'+str(listdir('songs')[int(d)-1]))
+
+
+play=threading.Thread(target=player, args=(q,))
+
+
+play.start()
+song.start()
