@@ -45,7 +45,7 @@ Any support from my side will be hugely limited.
 | ------- | :-------: |
 | Play/Pause/Resume/Stop | ✅ |
 | Volume   | ⚙️ |
-| Queue   | ⚙️ |
+| Queue   | ✅ |
 | Playlist | :x: |
 | Song list | ✅ |
 | Gui | Will not be added |
