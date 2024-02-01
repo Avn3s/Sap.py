@@ -101,7 +101,7 @@ def player(q):
             system("cls")
             print(pop)
             print("\n~~>Built by Avnes\n~~>Bound to be dogshit\n~~>Use at your own risk\n")
-            print("Interface cleared. You may proceed.")
+            print("Interface cleared; You may proceed.")
 
 
 play=threading.Thread(target=player, args=(q,))
