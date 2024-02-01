@@ -19,7 +19,11 @@ pop='''
 '''
 print(pop)
 print("\n\nLoading....")
-sleep(5)
+mixer.music.load("./utils/loadingscreen.mp3")
+mixer.music.play()
+sleep(6)
+mixer.music.fadeout(3000)
+mixer.music.unload()
 system("cls")
 print(pop)
 
