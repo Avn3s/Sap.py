@@ -44,7 +44,7 @@ def songplay(q):
                 mixer.music.unload()
                 mixer.music.load(q.pop(0))
                 mixer.music.play()
-        sleep(3)
+        sleep(2)
 
 song=threading.Thread(target=songplay, args=(q,))
 
@@ -93,6 +93,11 @@ def player(q):
             if d!='esc':
                 if int(d)-1 in range(len(listdir('songs'))):
                     remove('songs/'+str(listdir('songs')[int(d)-1]))
+        elif n.lower()=="cs":
+            system("cls")
+            print(pop)
+            print("\n~~>Built by Avnes\n~~>Bound to be dogshit\n~~>Use at your own risk\n")
+            print("Interface cleared. You may proceed.")
 
 
 play=threading.Thread(target=player, args=(q,))
@@ -100,3 +105,4 @@ play=threading.Thread(target=player, args=(q,))
 
 play.start()
 song.start()
+
