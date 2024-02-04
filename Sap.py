@@ -68,8 +68,9 @@ def player(q):
         n=input("\n >>-----> ")
         
         if n.lower()=='p':
-            sn=int(input("Specify the song ID from the list: "))
-            if sn in range(len(listdir('songs'))) and type(sn)==int:
+            sn=(input("Specify the song ID from the list: "))
+            if sn.isdigit() and sn.isdigit() in range(len(listdir('songs'))):
+                sn=int(sn)
                 s=str(listdir('songs')[sn-1])
                 q.append("./songs/"+s)
                 print("Added",s,"to the queue.")
