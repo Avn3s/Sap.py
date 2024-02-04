@@ -18,6 +18,7 @@ Any support from my side will be hugely limited.
 ## Requirements
 1. The [python](https://www.python.org/) language (v3.10 or newer).
 2. The [pygame](https://pypi.org/project/pygame/) module (preferably the latest version) has to be installed beforehand in order to run the program.
+3. A [Nerd Font](https://www.nerdfonts.com/) with ligatures, preferably [Fira Code](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) (this step is recommended, but purely optional).
 
 ## Installing python
 1. Go to [the python downloads page.](https://www.python.org/downloads)
@@ -30,6 +31,10 @@ Any support from my side will be hugely limited.
  3. Wait till installation completes.
  4. Close the app once it says 'Pygame Successfully installed!'.
  5. If you are lazy, just wait for 5 seconds. The app should close itself.
+
+## Installing a Nerd Font
+ 1. Just google it ig im lazy.
+ 2. Watch solo leveling.
 
 ## Usage:
  1. Click on 'Code' and hit 'download zip'.
@@ -44,7 +49,7 @@ Any support from my side will be hugely limited.
 | Feature  | Progress |
 | ------- | :-------: |
 | Play/Pause/Resume/Stop | ✅ |
-| Volume   | ⚙️ |
+| Volume   | ✅ |
 | Queue   | ✅ |
 | Playlist | :x: |
 | Song list | ✅ |
