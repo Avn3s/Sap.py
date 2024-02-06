@@ -5,6 +5,7 @@ from pygame import mixer
 from time import sleep
 from pygame import USEREVENT,event
 import threading
+from random import choice
 
 mixer.init()
 if name=="nt":
@@ -21,11 +22,14 @@ pop='''
 |_______/    /__/     \__\ | _|    (__)   | _|          |__|     
 
 '''
+
+x=choice(listdir("utils/loading"))
+
 print(pop)
 print("\n\n\n\n\n\nLoading....")
-mixer.music.load("./utils/loadingscreen.mp3")
+mixer.music.load("./utils/loading/"+x)
 mixer.music.play()
-sleep(6)
+sleep(4)
 mixer.music.fadeout(3000)
 mixer.music.unload()
 
@@ -49,21 +53,21 @@ mixer.music.set_endevent(MUSIC_END)
 
 q=[]
 
-
-def songplay(q):
+def songplay(q,v):
     while True:
         if (mixer.music.get_busy()==False) or (event == MUSIC_END):
             if len(q)!=0:
                 mixer.music.unload()
+                mixer.music.set_volume(v)
                 x=q.pop(0)
                 mixer.music.load(x)
                 mixer.music.play()
         sleep(2)
 
 
-song=threading.Thread(target=songplay, args=(q,))
+song=threading.Thread(target=songplay, args=(q,v))
 
-def player(q):
+def player(q,v):
     while True:
         n=input("\n >>-----> ")
         
@@ -133,9 +137,8 @@ def player(q):
             print("Unknown command. Enter 'h' for help.")
 
 
-play=threading.Thread(target=player, args=(q,))
+play=threading.Thread(target=player, args=(q,v))
 
 
 play.start()
 song.start()
-
