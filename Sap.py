@@ -53,19 +53,18 @@ mixer.music.set_endevent(MUSIC_END)
 
 q=[]
 
-def songplay(q,v):
+def songplay(q):
     while True:
         if (mixer.music.get_busy()==False) or (event == MUSIC_END):
             if len(q)!=0:
                 mixer.music.unload()
-                mixer.music.set_volume(v)
                 x=q.pop(0)
                 mixer.music.load(x)
                 mixer.music.play()
         sleep(2)
 
 
-song=threading.Thread(target=songplay, args=(q,v))
+song=threading.Thread(target=songplay, args=(q,))
 
 def player(q,v):
     while True:
