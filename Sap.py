@@ -51,22 +51,29 @@ print('\n')
 MUSIC_END=USEREVENT+1
 mixer.music.set_endevent(MUSIC_END)
 
+isPaused=False
+isrunning=True
 q=[]
 
-def songplay(q):
+def songplay():
+    global isPaused,v,q,isrunning
     while True:
-        if (mixer.music.get_busy()==False) or (event == MUSIC_END):
+        if (mixer.music.get_busy()==False or event == MUSIC_END) and isPaused==False:
             if len(q)!=0:
                 mixer.music.unload()
                 x=q.pop(0)
                 mixer.music.load(x)
+                mixer.music.set_volume(v)
                 mixer.music.play()
+        if isrunning==False:
+            quit()
         sleep(2)
 
 
-song=threading.Thread(target=songplay, args=(q,))
+song=threading.Thread(target=songplay, args=())
 
-def player(q,v):
+def player():
+    global isPaused,v,q,isrunning
     while True:
         n=input("\n >>-----> ")
         
@@ -94,13 +101,15 @@ def player(q,v):
             print("New volume:",v*100,'%')
 
         elif n.lower()=='h':
-            print("\nKindly ignore the quotes and enter the characters only\n-> Enter 'P' to play a song\n-> Enter 'L' to view the list of songs in the songs folder\n-> Enter 'PP' to pause the current song\n-> Enter 'R' to resume\n-> Enter 'N' to go to the next song in queue\n-> Enter 'CQ' to stop playback and clear the queue\n-> Enter 'CS' to clear the screen (buggy)\n-> Enter 'V' to change the Volume\n-> Enter 'D' to delete a song\n-> Press Alt+F4 to exit")
+            print("\nKindly ignore the quotes and enter the characters only\n-> Enter 'P' to play a song\n-> Enter 'L' to view the list of songs in the songs folder\n-> Enter 'PP' to pause the current song\n-> Enter 'R' to resume\n-> Enter 'N' to go to the next song in queue\n-> Enter 'CQ' to stop playback and clear the queue\n-> Enter 'CS' to clear the screen (buggy and not recommended for use)\n-> Enter 'V' to change the Volume\n-> Enter 'D' to delete a song\n-> Enter 'Q' to exit")
             
         elif n.lower()=="pp":
             mixer.music.pause()
+            isPaused=True
             
         elif n.lower()=="r":
             mixer.music.unpause()
+            isPaused=False
             
         elif n.lower()=="n":
             mixer.music.stop()
@@ -123,6 +132,7 @@ def player(q,v):
                 system("cls")
             else:
                 system("clear")
+            print("\n\nInterface Cleared.")
         
         elif n.lower()=="rr":
             mixer.music.stop()
@@ -132,12 +142,25 @@ def player(q,v):
             mixer.music.load("./utils/narr.mp3")
             mixer.music.play()
         
+        elif n.lower()=="q":
+            q.clear
+            mixer.music.stop()
+            mixer.music.unload()
+            isrunning=False
+            quit()
+        
         else:
             print("Unknown command. Enter 'h' for help.")
 
 
-play=threading.Thread(target=player, args=(q,v))
+play=threading.Thread(target=player, args=())
 
 
 play.start()
 song.start()
+
+while True:
+    sleep(0.5)
+    if isrunning==False:
+        print("\nThank You For Using Sap.py.\nMade with <3 by Avnes")
+        quit()
