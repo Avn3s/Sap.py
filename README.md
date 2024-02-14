@@ -49,7 +49,7 @@ Any support from my side will be hugely limited.
 <td>
 
 | Command  | Function/Usage |
-| ------- | :-------: |
+| :-------: | :-------: |
 | H | Shows Help |
 | L | Shows the list of available songs |
 | P | Plays a song or adds it to the queue |
@@ -68,7 +68,7 @@ Any support from my side will be hugely limited.
 <td>
 
 | Feature  | Progress |
-| ------- | :-------: |
+| :-------: | :-------: |
 | Play/Pause/Resume/Stop | ✅ |
 | Volume   | ✅ |
 | Queue   | ✅ |
