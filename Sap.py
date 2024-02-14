@@ -54,14 +54,16 @@ mixer.music.set_endevent(MUSIC_END)
 isPaused=False
 isrunning=True
 q=[]
+p=[]
 
 def songplay():
-    global isPaused,v,q,isrunning
+    global isPaused,v,q,isrunning,p
     while True:
         if (mixer.music.get_busy()==False or event == MUSIC_END) and isPaused==False:
             if len(q)!=0:
                 mixer.music.unload()
                 x=q.pop(0)
+                p.append(x)
                 mixer.music.load(x)
                 mixer.music.set_volume(v)
                 mixer.music.play()
@@ -73,7 +75,7 @@ def songplay():
 song=threading.Thread(target=songplay, args=())
 
 def player():
-    global isPaused,v,q,isrunning
+    global isPaused,v,q,isrunning,p
     while True:
         n=input("\n >>-----> ")
         
@@ -99,9 +101,9 @@ def player():
             if mixer.music.get_busy()==True:
                 mixer.music.set_volume(v)
             print("New volume:",v*100,'%')
-
+            
         elif n.lower()=='h':
-            print("\nKindly ignore the quotes and enter the characters only\n-> Enter 'P' to play a song\n-> Enter 'L' to view the list of songs in the songs folder\n-> Enter 'PP' to pause the current song\n-> Enter 'R' to resume\n-> Enter 'N' to go to the next song in queue\n-> Enter 'CQ' to stop playback and clear the queue\n-> Enter 'CS' to clear the screen (buggy and not recommended for use)\n-> Enter 'V' to change the Volume\n-> Enter 'D' to delete a song\n-> Enter 'Q' to exit")
+            print("\nKindly ignore the quotes and enter the characters only\n-> Enter 'P' to play a song\n-> Enter 'L' to view the list of songs in the songs folder\n-> Enter 'PP' to pause the current song\n-> Enter 'R' to resume\n-> Enter 'N' to go to the next song in queue\n-> Enter 'PV' to go to the previous song\n-> Enter 'CQ' to stop playback and clear the queue\n-> Enter 'CS' to clear the screen (buggy and not recommended for use)\n-> Enter 'V' to change the Volume\n-> Enter 'D' to delete a song\n-> Enter 'E' to exit")
             
         elif n.lower()=="pp":
             mixer.music.pause()
@@ -116,24 +118,34 @@ def player():
             mixer.music.unload()
             print("Moving on to the next song...")
             
+        elif n.lower()=="pv":
+            q.insert(0,p.pop())
+            q.insert(0,p.pop())
+            mixer.music.stop()
+            mixer.music.unload()
+            print("Going to the previous song...")
+            
+        elif n.lower()=="q":
+            for i in range(len(q)):
+                print(str(i+1)+".",q[i][8::])
         elif n.lower()=="cq":
             mixer.music.stop()
             mixer.music.unload()
             q.clear()
-
+            
         elif n.lower()=="d":
             d=input("Song number to be deleted (enter 'esc' to skip): ")
             if d!='esc':
                 if int(d)-1 in range(len(listdir('songs'))):
                     remove('songs/'+str(listdir('songs')[int(d)-1]))
-        
+            
         elif n.lower()=="cs":
             if name=="nt":
                 system("cls")
             else:
                 system("clear")
             print("\n\nInterface Cleared.")
-        
+            
         elif n.lower()=="rr":
             mixer.music.stop()
             mixer.music.unload()
@@ -141,14 +153,14 @@ def player():
             print("Never Gonna Give You Up")
             mixer.music.load("./utils/narr.mp3")
             mixer.music.play()
-        
-        elif n.lower()=="q":
+            
+        elif n.lower()=="E":
             q.clear
             mixer.music.stop()
             mixer.music.unload()
             isrunning=False
             quit()
-        
+            
         else:
             print("Unknown command. Enter 'h' for help.")
 

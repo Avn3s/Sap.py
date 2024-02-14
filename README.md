@@ -5,9 +5,10 @@
 4. [Installing python](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#clarification-cum-warning)
 5. [Installing pygame](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#installing-python)
 6. [Usage](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#usage)
-7. [To-do](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#to-do)
-8. [Also Note](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#also-note)
-9. [Credits](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#credits)
+7. [Commands](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#commands)
+8. [To-do](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#to-do)
+9. [Also Note](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#also-note)
+10. [Credits](https://github.com/Avn3s/SoundApp?tab=readme-ov-file#credits)
 
 ## Clarification-cum-Warning
 This was made simply for a school project by a jobless dude for the sake of marks. So do not use this unless you have nothing else to do.
@@ -41,11 +42,31 @@ Any support from my side will be hugely limited.
  2. Unzip the archive.
  3. Run requirementinstaller.py
  4. Open soundapp.py
- 5. Enjoy.
+ 5. Type 'h' and hit enter when the prompt comes up.
+ 6. Enjoy.
+
+## Commands:
+<td>
+
+| Command  | Function/Usage |
+| ------- | :-------: |
+| H | Shows Help |
+| L | Shows the list of available songs |
+| P | Plays a song or adds it to the queue |
+| PP   | Pauses the currently playing song |
+| R | Resumes playback, if paused |
+| CQ   | Stops playback and clears the queue |
+| CS | Clears the screen (buggy) |
+| N | Proceeds to play the next song in the queue |
+| PV | Plays the previous song in the queue (without altering the queue) |
+| Q | Shows the songs in the queue |
+| D | Deletes a song from the songs list/folder |
+| E | Exits the program |
+</td>
 
 ## To-do
 <td>
-        
+
 | Feature  | Progress |
 | ------- | :-------: |
 | Play/Pause/Resume/Stop | ✅ |
