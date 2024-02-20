@@ -38,18 +38,19 @@ Any support from my side will be hugely limited.
  2. Watch solo leveling.
 
 ## Usage:
- 1. Click on 'Code' and hit 'download zip'.
- 2. Unzip the archive.
- 3. Run requirementinstaller.py
- 4. Open soundapp.py
- 5. Type 'h' and hit enter when the prompt comes up.
- 6. Enjoy.
+ 1. Click on 'Code' and hit 'download zip' (to use the latest dev build).
+ 2. Alternatively, download the latest release from the 'releases' section (to use the latest stable build).
+ 3. Unzip the archive.
+ 4. Run requirementinstaller.py
+ 5. Open soundapp.py
+ 6. Type 'H' and hit enter when the prompt comes up.
+ 7. Enjoy.
 
 ## Commands:
 <td>
 
 | Command  | Function/Usage |
-| :-------: | :-------: |
+| :-------: | ------- |
 | H | Shows Help |
 | L | Shows the list of available songs |
 | P | Plays a song or adds it to the queue |
@@ -83,8 +84,7 @@ Any support from my side will be hugely limited.
 This program can play .mp3, .wav, .ogg files ONLY as of now.                                              
  Support for other formats may be there, but it has not been tested.                                       
  Also, this program can only play pre-downloaded songs. It CAN NOT download them from the internet.        
- To add your own songs, please download the .mp3 or .wav files and drop them into the 'songs' folder.      
- To delete songs, simply delete the corresponding audio file from the songs folder.
-
+ To add your own songs, please download the audio files and drop them into the 'songs' folder.      
+ To delete songs, simply use the 'D' command after launching the app.
  ## Credits
  A huge shoutout to [pygame](https://pypi.org/project/pygame/) for the library.
