@@ -154,7 +154,7 @@ def player():
             mixer.music.load("./utils/narr.mp3")
             mixer.music.play()
             
-        elif n.lower()=="E":
+        elif n.lower()=="e":
             q.clear
             mixer.music.stop()
             mixer.music.unload()
