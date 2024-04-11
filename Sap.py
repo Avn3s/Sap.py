@@ -1,6 +1,5 @@
 #Importing requirements
 from os import listdir,remove,system,name
-from subprocess import call
 from pygame import mixer
 from time import sleep
 from pygame import USEREVENT,event
@@ -44,7 +43,7 @@ print("Here are your saved songs... To add more, move the required audio files t
 
 v=1.0
 for i in range(len(listdir('songs'))):
-        if listdir('songs')[i]!='ZZZ.txt':
+        if listdir('songs')[i]!='◌󠇯.txt':
             print(i+1,'.','\t',listdir('songs')[i])
 print('\n')
 
@@ -92,7 +91,7 @@ def player():
         elif n.lower()=='l':
             print("\nShowing song list.\n")
             for i in range(len(listdir('songs'))):
-                if listdir('songs')[i]!='ZZZ.txt':
+                if listdir('songs')[i]!='◌󠇯.txt':
                     print(i+1,'.','\t',listdir('songs')[i])
             
         elif n.lower()=='v':
