@@ -2,7 +2,6 @@
 from os import listdir, remove, system, name
 from pygame import mixer
 from time import sleep
-from pygame import USEREVENT, event
 import threading
 from random import choice
 import json
@@ -100,7 +99,7 @@ def player():
                     mixer.music.stop()
                     mixer.music.unload()
                     print(f"Now Playing {s}")
-            except:
+            except:  # noqa: E722
                 print("Invalid function arguments... try again.")
 
         elif n.lower() == "l":
@@ -128,7 +127,7 @@ def player():
             mixer.music.pause()
             isPaused = True
 
-        elif n.lower() == "r ":
+        elif n.lower() == "r":
             mixer.music.unpause()
             isPaused = False
 
