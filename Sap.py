@@ -169,7 +169,7 @@ def player():
                 for i in playload():
                     print(f"{x}. {i}")
                     x += 1
-            elif n.lower() == "pl q":
+            elif n.lower().startswith("pl q"):
                 select = n.split()[2]
                 for i in playload()[select]:
                     q.append("./songs/"+i)
