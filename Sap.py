@@ -186,6 +186,16 @@ def player():
                 except IndexError:
                     print("Invalid syntax: use 'pl new <name> <song_number list>' ")
 
+            elif n.lower().startswith("pl del"):
+                try:
+                    plname = n.split()[2]
+                    playlists = playload()
+                    playlists.pop(plname)
+                    with open("playlists.json", "w") as file:
+                        json.dump(playlists, file, indent=4)
+                except IndexError:
+                    print("Invalid syntax: use 'pl del <playlist_name>' ")
+
         elif n.lower().startswith("d"):
             try:
                 d = n.split()[1]
