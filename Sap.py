@@ -116,7 +116,7 @@ def player():
                     mixer.music.set_volume(v)
                 print("New volume:", v * 100, "%")
             except:
-                print("Invalid function arguments... try again.")
+                ...
 
         elif n.lower() == "h":
             print(
